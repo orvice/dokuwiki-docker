@@ -8,8 +8,7 @@ ENV DOKUWIKI_CSUM ea11e4046319710a2bc6fdf58b5cda86
 RUN \
   apt-get update && \
   apt-get install -y wget && \
-  rm -rf /var/lib/apt/lists/* && \
-
+  rm -rf /var/lib/apt/lists/*  
 
 
 # Download & check & deploy dokuwiki & cleanup
