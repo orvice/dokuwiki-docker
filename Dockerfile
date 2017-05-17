@@ -12,8 +12,8 @@ RUN \
 
 
 # Download & check & deploy dokuwiki & cleanup
-RUN wget -q -O /dokuwiki.tgz "http://download.dokuwiki.org/src/dokuwiki/dokuwiki-$DOKUWIKI_VERSION.tgz" && \
-    if [ "$DOKUWIKI_CSUM" != "$(md5sum /dokuwiki.tgz | awk '{print($1)}')" ];then echo "Wrong md5sum of downloaded file!"; exit 1; fi && \
+RUN wget -q -O /var/www/html/public/dokuwiki.tgz "http://download.dokuwiki.org/src/dokuwiki/dokuwiki-$DOKUWIKI_VERSION.tgz" && \
+    if [ "$DOKUWIKI_CSUM" != "$(md5sum /var/www/html/public/dokuwiki.tgz | awk '{print($1)}')" ];then echo "Wrong md5sum of downloaded file!"; exit 1; fi && \
     mkdir -p /var/www/html/public && \
     tar -zxf dokuwiki.tgz -C /var/www/html/public --strip-components 1 && \
     rm dokuwiki.tgz
